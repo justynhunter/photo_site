@@ -8,7 +8,11 @@ defmodule PhotoSiteWeb.IndexLive do
     album = get_album("southern-progress")
 
     {:ok,
-     assign(socket, page_title: "justyn hunter", page_descr: album.description, album: album)}
+     assign(socket,
+       page_title: "justyn hunter",
+       page_descr: "photos by justyn hunter",
+       album: album
+     )}
   end
 
   def render(assigns) do
