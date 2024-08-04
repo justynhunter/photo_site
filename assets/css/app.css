@@ -35,7 +35,7 @@ a {
         background-size: 100% 0.1em;
         background-position-x: 0%;
     }
-    
+
     &[target="_blank"] {
         margin-right: 1em;
     }
@@ -126,13 +126,13 @@ form {
     flex-direction: column;
     align-items: flex-start;
 
-    & > div {
+    &>div {
         width: 100%;
         text-align: left;
         margin-bottom: 24px;
     }
 
-    & > button {
+    &>button {
         margin: auto;
         padding: 4px 32px;
     }
@@ -143,17 +143,25 @@ form {
         height: 250px;
 
         padding: 8px;
+
+        transition: box-shadow 200ms ease;
+
+        &:hover {
+            box-shadow: inset 0 0 8px -2px #444;
+        }
     }
 
     & input {
         font-family: "Rufina", serif;
         border: solid 1px #444;
         padding: 8px 8px;
-        
+
         width: calc(100% - 18px);
 
+        transition: box-shadow 200ms ease;
+
         &:hover {
-            animation: shadow_in 400ms ease normal forwards;
+            box-shadow: inset 0 0 8px -2px #444;
         }
     }
 }
@@ -172,24 +180,6 @@ form {
     border-top: 7px solid var(--colors-font);
     font-size: 0;
     line-height: 0;
-}
-
-.hide {
-    display: none;
-}
-
-@keyframes fade_in {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-.fade_in {
-    animation: fade_in 500ms, forwards ease;
 }
 
 @keyframes shadow_in {
@@ -257,38 +247,51 @@ form {
     width: 100%;
     max-width: var(--page-max-width);
 
-    opacity: 1;
-    transition: opacity 400ms ease-out;
+    .image_wrapper {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+    }
 
     & img {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        opacity: 0;
+
         width: 100%;
         max-width: var(--page-max-width);
         aspect-ratio: 4 / 3;
         object-fit: contain;
 
         margin-bottom: 10px;
+
+        transition: opacity 250ms linear;
+
+        &.show {
+            opacity: 1;
+        }
     }
 
     & button {
-        z-index: 2;
+        z-index: 1;
         position: absolute;
+        right: 0;
+
+        cursor: e-resize;
+
         height: 100%;
         max-height: 768px;
-        width: 50%;
+        width: 33%;
 
         background: transparent;
 
         border: none;
         padding: 0;
 
-        &:first-child {
+        &:first-of-type {
             left: 0;
             cursor: w-resize;
-        }
-
-        &:last-child {
-            right: 0;
-            cursor: e-resize;
         }
     }
 }
@@ -299,7 +302,8 @@ form {
     margin: auto;
     text-align: left;
 
-    & h2, h3 {
+    & h2,
+    h3 {
         all: unset;
         text-decoration: underline;
         font-weight: bold;
@@ -311,23 +315,10 @@ form {
         font-size: 1.125rem;
     }
 
-    header .link_container {
-    }
+    header .link_container {}
 }
 
 @media screen and (max-width: 720px) {
-    .hide {
-        display: block;
-    }
-
-    .fade_in {
-        animation: unset;
-    }
-
-    #image_container button {
-        display: none;
-    }
-
     body.error {
         & header {
             & h1 {

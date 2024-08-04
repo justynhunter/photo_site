@@ -5,7 +5,7 @@ defmodule PhotoSiteWeb.IndexLive do
   alias PhotoSite.Repo
 
   def mount(_params, _session, socket) do
-    album = get_album("the-progress-of-man")
+    album = get_album("southern-progress")
 
     {:ok,
      assign(socket, page_title: "justyn hunter", page_descr: album.description, album: album)}
