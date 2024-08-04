@@ -37,7 +37,6 @@ unless Repo.exists?(Album) do
   photo11 = %Photo{album_id: default_album.id, seq: 11, src: "https://photos.justynhunter.com/progress-of-man-11.webp", alt: "rotting house"}
   photo12 = %Photo{album_id: default_album.id, seq: 12, src: "https://photos.justynhunter.com/progress-of-man-12.webp", alt: "rotting house"}
   photo13 = %Photo{album_id: default_album.id, seq: 13, src: "https://photos.justynhunter.com/progress-of-man-13.webp", alt: "rotting house"}
-  photo14 = %Photo{album_id: default_album.id, seq: 14, src: "https://photos.justynhunter.com/progress-of-man-14.webp", alt: "rotting house"}
 
   Repo.insert(photo1)
   Repo.insert(photo2)
@@ -52,7 +51,6 @@ unless Repo.exists?(Album) do
   Repo.insert(photo11)
   Repo.insert(photo12)
   Repo.insert(photo13)
-  Repo.insert(photo14)
 
   default_album = %Album{name: "wildlife", slug: "wildlife", seq: 2, description: "kentucky wildlife museum"}
   {_, default_album} = Repo.insert(default_album)

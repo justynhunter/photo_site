@@ -16,8 +16,15 @@ defmodule PhotoSiteWeb.ContactLive do
     <%= if @show_form do %>
       <div id="form_container">
         <.form for={@form} phx-submit="save" phx-target{@myself}>
-          <.input type="text" name="user_name" label="name" value="" field={@form["user_name"]} />
-          <.input type="textarea" name="message" label="message" value="" field={@form["message"]} />
+          <.input
+            id="user_name"
+            label="name"
+            type="text"
+            name="user_name"
+            value=""
+            field={@form["user_name"]}
+          />
+          <.input id="message" label="message" type="textarea" name="message" value="" field={@form["message"]} />
           <Turnstile.widget theme="light" />
           <button type="submit">send</button>
         </.form>

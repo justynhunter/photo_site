@@ -1,6 +1,7 @@
 defmodule WorksMenuComponent do
   use Phoenix.LiveComponent
 
+  alias Phoenix.LiveView.JS
   alias PhotoSite.Album
   alias PhotoSite.Repo
 
@@ -10,24 +11,21 @@ defmodule WorksMenuComponent do
 
   def render(assigns) do
     ~H"""
-    <div id="works_dropdown">
-      <a id="menu_link" phx-click="works_click" phx-target={@myself}>work</a>
-      <ul id="dropdown" class={@show_menu}>
+    <div class="dropdown_menu">
+      <a
+        href="#"
+        phx-click={JS.add_class("show", to: "#dropdown")}
+        phx-click-away={JS.remove_class("show", to: "#dropdown")}
+        phx-target={@myself}
+      >
+        work <span class="triangle_down"></span>
+      </a>
+      <ul id="dropdown">
         <%= for album <- @albums do %>
           <li><.link navigate={"/#{album.slug}"}><%= album.name %></.link></li>
         <% end %>
       </ul>
     </div>
     """
-  end
-
-  def handle_event("works_click", _params, socket) do
-    socket =
-      case socket.assigns.show_menu == "show" do
-        true -> assign(socket, show_menu: "")
-        false -> assign(socket, show_menu: "show")
-      end
-
-    {:noreply, socket}
   end
 end

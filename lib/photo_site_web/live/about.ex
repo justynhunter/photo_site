@@ -7,18 +7,21 @@ defmodule PhotoSiteWeb.AboutLive do
 
   def render(assigns) do
     ~H"""
-    <div id="cv">
+    <div class="copy_area">
       <p>
         Justyn Hunter lives in Nashville, TN and documents the America south with an emphasis on human inhabited space,
         the past and religious iconography.
       </p>
 
       <p>
-        other work may be found at the "<a href="https://collective.photos/justyn-hunter/selected-places">some photographers</a>"
+        other work may be found at the "<a
+          href="https://collective.photos/justyn-hunter/selected-places"
+          target="_blank"
+        >some photographers</a>"
         collective.
       </p>
 
-      <h3>socials</h3>
+      <h2>socials</h2>
       <ul>
         <li><a href="https://www.instagram.com/justynh" target="_blank">instagram</a></li>
         <li><a href="https://www.flickr.com/photos/j_hunter" target="_blank">flickr</a></li>
@@ -27,7 +30,10 @@ defmodule PhotoSiteWeb.AboutLive do
       <h3>published</h3>
       <ul>
         <li>
-          <a href="https://subjectivelyobjective.com/product/investigations-in-infrastructure/" target="_blank"><em>Investigations in Infrastructure</em></a>, Subjectively Objective, Rochester Hills, MI, 2022
+          <a
+            href="https://subjectivelyobjective.com/product/investigations-in-infrastructure/"
+            target="_blank"
+          ><em>Investigations in Infrastructure</em></a>, Subjectively Objective, Rochester Hills, MI, 2022
         </li>
         <li>
           <a href="https://subjectivelyobjective.com/product/everything-is-narrative/" target="_blank"><em>Everything is Narrative</em></a>, Subjectively Objective, Rochester Hills, MI, 2022
