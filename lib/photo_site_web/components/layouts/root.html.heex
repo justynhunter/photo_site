@@ -9,9 +9,21 @@
       <%= assigns[:page_title] || "PhotoSite" %>
     </.live_title>
     <link phx-track-static rel="stylesheet" href={~p"/assets/app.css"} />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&family=Sedan:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&family=Sedan:ital@0;1&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&family=Sedan:ital@0;1&display=swap"
+        rel="stylesheet"
+        type="text/css"
+      />
+    </noscript>
     <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
     </script>
     <Turnstile.script />
