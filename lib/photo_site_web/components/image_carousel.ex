@@ -47,7 +47,7 @@ defmodule ImageCarousel do
 
   defp show_photo(seq, photo) do
     case seq == photo.seq do
-      true -> "show"
+      true -> " show"
       false -> ""
     end
   end
